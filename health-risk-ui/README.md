@@ -57,3 +57,57 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+src/app/
+├── core/
+│   ├── auth/
+│   │   ├── auth.service.ts
+│   │   ├── auth.guard.ts
+│   │   └── auth.interceptor.ts
+│   ├── services/
+│   │   ├── api.service.ts
+│   │   ├── assessment.service.ts
+│   │   └── patient.service.ts
+│   └── layout/
+│       ├── header/
+│       └── footer/
+├── features/
+│   ├── assessment/
+│   │   ├── assessment-form/
+│   │   └── assessment-results/
+│   ├── auth/
+│   │   ├── login/
+│   │   └── register/
+│   └── dashboard/
+├── shared/
+│   ├── components/
+│   │   ├── risk-meter/
+│   │   └── loading-spinner/
+│   ├── models/
+│   └── utils/
+└── app.config.ts
+
+# Core components
+ng g c core/layout/header --skip-tests --standalone
+ng g c core/layout/footer --skip-tests --standalone
+
+# Feature modules
+ng g c features/assessment/assessment-form --skip-tests --standalone
+ng g c features/assessment/assessment-results --skip-tests --standalone
+ng g c features/patient/patient-profile --skip-tests --standalone
+
+# Shared components
+ng g c shared/components/risk-meter --skip-tests --standalone
+ng g c shared/components/loading-spinner --skip-tests --standalone
+
+# Generate services
+ng g s core/services/api --skip-tests
+ng g s core/services/assessment --skip-tests
+ng g s core/services/patient --skip-tests
+
+# Generate Models
+
+Create model files manually in shared/models/
+ assessment.model.ts
+ patient.model.ts
+ risk-result.model.ts
