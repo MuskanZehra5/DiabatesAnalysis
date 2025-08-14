@@ -87,6 +87,13 @@ src/app/
 │   └── utils/
 └── app.config.ts
 
+# Auth components
+ng g c features/auth/login --standalone --skip-tests
+ng g c features/auth/register --standalone --skip-tests
+
+# Dashboard
+ng g c features/dashboard --standalone --skip-tests
+
 # Core components
 ng g c core/layout/header --skip-tests --standalone
 ng g c core/layout/footer --skip-tests --standalone

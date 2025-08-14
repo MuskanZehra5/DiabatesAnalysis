@@ -1,1 +1,79 @@
-<p>assessment-form works!</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Diabetes Risk Assessment</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form  [formGroup]="form" (ngSubmit)="onSubmit()">
+
+      <!-- Gender -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Gender</mat-label>
+        <mat-select formControlName="gender">
+          <mat-option value="Male">Male</mat-option>
+          <mat-option value="Female">Female</mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('gender')?.invalid">Gender is required</mat-error>
+      </mat-form-field>
+
+      <!-- Age -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Age</mat-label>
+        <input matInput type="number" formControlName="age" placeholder="Enter age" />
+        <mat-error *ngIf="form.get('age')?.invalid">Age is required</mat-error>
+      </mat-form-field>
+
+      <!-- Hypertension -->
+      <mat-radio-group formControlName="hypertension" class="radio-group">
+        <mat-label>Hypertension</mat-label>
+        <mat-radio-button value="Yes">Yes</mat-radio-button>
+        <mat-radio-button value="No">No</mat-radio-button>
+      </mat-radio-group>
+
+      <!-- Heart Disease -->
+      <mat-radio-group formControlName="heart_disease" class="radio-group">
+        <mat-label>Heart Disease</mat-label>
+        <mat-radio-button value="Yes">Yes</mat-radio-button>
+        <mat-radio-button value="No">No</mat-radio-button>
+      </mat-radio-group>
+
+      <!-- BMI -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>BMI</mat-label>
+        <input matInput type="number" formControlName="bmi" placeholder="Enter BMI" />
+        <mat-error *ngIf="form.get('bmi')?.invalid">BMI is required</mat-error>
+      </mat-form-field>
+
+      <!-- HbA1c Level -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>HbA1c Level (%)</mat-label>
+        <input matInput type="number" step="0.1" formControlName="HbA1c_level" placeholder="Enter HbA1c level" />
+        <mat-error *ngIf="form.get('HbA1c_level')?.invalid">Required</mat-error>
+      </mat-form-field>
+
+      <!-- Blood Glucose Level -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Blood Glucose Level (mg/dL)</mat-label>
+        <input matInput type="number" formControlName="blood_glucose_level" placeholder="Enter blood glucose" />
+        <mat-error *ngIf="form.get('blood_glucose_level')?.invalid">Required</mat-error>
+      </mat-form-field>
+
+      <!-- Smoking History -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Smoking History</mat-label>
+        <mat-select formControlName="smoking_history">
+          <mat-option value="never">Never</mat-option>
+          <mat-option value="former">Former</mat-option>
+          <mat-option value="current">Current</mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('smoking_history')?.invalid">Required</mat-error>
+      </mat-form-field>
+
+      <!-- Submit Button -->
+      <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+        <mat-icon>calculate</mat-icon>
+        Assess Risk
+      </button>
+
+    </form>
+  </mat-card-content>
+</mat-card>

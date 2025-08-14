@@ -1,1 +1,12 @@
-<p>header works!</p>
+<mat-toolbar color="primary" class="header-toolbar">
+  <span class="logo">
+    <mat-icon>favorite</mat-icon>
+    Health Risk Predictor
+  </span>
+
+  <span class="spacer"></span>
+
+  <button mat-button routerLink="/dashboard" routerLinkActive="active-link">Home</button>
+  <button mat-button routerLink="/assessment">Assessment</button>
+  <button mat-button routerLink="/about">About</button>
+</mat-toolbar>

@@ -1,5 +1,19 @@
-.container { 
-      padding: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; // full viewport height
+}
+
+.app-content {
+  flex: 1 0 auto; // grow and take remaining space
+}
+
+/* Footer styling */
+app-footer {
+  flex-shrink: 0; // prevent shrinking
+}

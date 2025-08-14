@@ -1,1 +1,25 @@
-<p>assessment-results works!</p>
+<mat-card *ngIf="result">
+      <mat-card-title>Assessment Result</mat-card-title>
+      <mat-card-content>
+        <p><strong>Prediction:</strong> {{ result.prediction }}</p>
+        <p *ngIf="result.riskScore !== undefined">
+          <strong>Risk Score:</strong> {{ result.riskScore }}%
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" routerLink="/assessment-form">
+          New Assessment
+        </button>
+      </mat-card-actions>
+    </mat-card>
+
+    <mat-card *ngIf="!result">
+      <mat-card-content>
+        <p>No result found. Please complete the assessment first.</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" routerLink="/assessment-form">
+          Go to Form
+        </button>
+      </mat-card-actions>
+    </mat-card>
