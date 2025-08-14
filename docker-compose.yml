@@ -1,0 +1,110 @@
+version: '3.8'
+
+services:
+  # API Gateway
+  api-gateway:
+    image: ${DOCKER_REGISTRY-}apigateway
+    build:
+      context: .
+      dockerfile: ApiGateway/Dockerfile
+    ports:
+      - "5100:80"  # Changed from 5000
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:80
+    depends_on:
+      - patient-service
+      - assessment-service
+      - notification-service
+      - ml-service
+
+  # Patient Service
+  patient-service:
+    image: ${DOCKER_REGISTRY-}patientservice
+    build:
+      context: .
+      dockerfile: PatientService/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+      - "5101:80"  # Changed from 5001
+    volumes:
+      - patient-data:/app/data
+
+  # Assessment Service
+  assessment-service:
+    image: ${DOCKER_REGISTRY-}assessmentservice
+    build:
+      context: .
+      dockerfile: AssessmentService/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:80
+      - ML_SERVICE_URL=http://ml-service:5001  # Internal port remains same
+    ports:
+      - "5102:80"  # Changed from 5002
+    depends_on:
+      - ml-service
+
+  # Notification Service
+  notification-service:
+    image: ${DOCKER_REGISTRY-}notificationservice
+    build:
+      context: .
+      dockerfile: NotificationService/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+      - "5103:80"  # Changed from 5003
+
+  # Python ML Service
+  ml-service:
+    image: healthrisk-ml
+    build:
+      context: ./health-risk-ml
+      dockerfile: Dockerfile
+    ports:
+      - "5104:5001"  # Changed from 5001:5001
+    volumes:
+      - ./health-risk-ml/models:/app/models
+    environment:
+      - FLASK_ENV=production
+      - PYTHONUNBUFFERED=1
+    command: >
+      gunicorn --bind 0.0.0.0:5001 app:app
+    restart: always
+
+  # RabbitMQ (ports unchanged as they're standard)
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"  # AMQP (standard)
+      - "15672:15672" # Management UI (standard)
+    healthcheck:
+      test: ["CMD", "rabbitmqctl", "status"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Sql server service
+  sql-server:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=my_password0
+      - MSSQL_PID=Express
+    ports:
+      - "1433:1433"
+    volumes:
+      - sql-data:/var/opt/mssql
+    healthcheck:
+      test: ["CMD", "/opt/mssql-tools/bin/sqlcmd", "-S", "localhost", "-U", "sa", "-P", "my_password0", "-Q", "SELECT 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  patient-data:
+  sql-data:

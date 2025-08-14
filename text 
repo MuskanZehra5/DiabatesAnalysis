@@ -1,0 +1,12 @@
+10. Run the System
+Start all services in order:
+
+Start your microservices (Patient, Assessment, Notification)
+
+Start the API Gateway:
+
+bash
+cd ApiGateway
+dotnet run
+
+

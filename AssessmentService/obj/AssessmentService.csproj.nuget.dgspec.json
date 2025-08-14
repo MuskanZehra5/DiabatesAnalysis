@@ -1,0 +1,151 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/muskanzehra/Documents/HealthRiskMicroservices/AssessmentService/AssessmentService.csproj": {}
+  },
+  "projects": {
+    "/Users/muskanzehra/Documents/HealthRiskMicroservices/AssessmentService/AssessmentService.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/muskanzehra/Documents/HealthRiskMicroservices/AssessmentService/AssessmentService.csproj",
+        "projectName": "AssessmentService",
+        "projectPath": "/Users/muskanzehra/Documents/HealthRiskMicroservices/AssessmentService/AssessmentService.csproj",
+        "packagesPath": "/Users/muskanzehra/.nuget/packages/",
+        "outputPath": "/Users/muskanzehra/Documents/HealthRiskMicroservices/AssessmentService/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/muskanzehra/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/Users/muskanzehra/Documents/HealthRiskMicroservices/SharedModels/SharedModels.csproj": {
+                "projectPath": "/Users/muskanzehra/Documents/HealthRiskMicroservices/SharedModels/SharedModels.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "MassTransit": {
+              "target": "Package",
+              "version": "[8.5.1, )"
+            },
+            "MassTransit.RabbitMQ": {
+              "target": "Package",
+              "version": "[8.5.1, )"
+            },
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[7.0.17, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.304/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/muskanzehra/Documents/HealthRiskMicroservices/SharedModels/SharedModels.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/muskanzehra/Documents/HealthRiskMicroservices/SharedModels/SharedModels.csproj",
+        "projectName": "SharedModels",
+        "projectPath": "/Users/muskanzehra/Documents/HealthRiskMicroservices/SharedModels/SharedModels.csproj",
+        "packagesPath": "/Users/muskanzehra/.nuget/packages/",
+        "outputPath": "/Users/muskanzehra/Documents/HealthRiskMicroservices/SharedModels/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/muskanzehra/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.304/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
