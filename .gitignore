@@ -1,0 +1,17 @@
+# .NET
+bin/
+obj/
+
+# Angular
+node_modules/
+dist/
+
+# Logs
+*.log
+
+# VSCode / Rider
+.vscode/
+.idea/
+
+# OS Files
+.DS_Store
