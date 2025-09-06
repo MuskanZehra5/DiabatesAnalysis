@@ -1,13 +1,15 @@
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/auth/guards/auth-guard';
-import { Dashboard } from './features/dashboard/dashboard';
+import { DashboardComponent } from './features/dashboard/dashboard';
 import { NgModule } from '@angular/core';
 import { AssessmentForm } from './features/assessment/assessment-form/assessment-form';
+import { About } from './features/about/about';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: Dashboard,},// canActivate: [AuthGuard] },
+  { path: 'dashboard', component: DashboardComponent,},// canActivate: [AuthGuard] },
   { path: 'assessment', component: AssessmentForm},
+  { path: 'about', component: About},
   { path: '**', redirectTo: '/dashboard' }
 ];
 

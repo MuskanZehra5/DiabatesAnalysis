@@ -1,1 +1,197 @@
-<p>dashboard works!</p>
+<div class="dashboard-container">
+  <!-- Header Section -->
+  <div class="dashboard-header">
+    <h1>Health Dashboard</h1>
+    <p>Welcome back! Here's your health overview</p>
+    <div class="header-gradient"></div>
+  </div>
+
+  <!-- Stats Overview -->
+  <div class="stats-grid">
+    <mat-card class="stat-card">
+      <div class="stat-icon risk-assessments">
+        <mat-icon>assignment</mat-icon>
+      </div>
+      <div class="stat-content">
+        <h3>12</h3>
+        <p>Total Assessments</p>
+      </div>
+    </mat-card>
+
+    <mat-card class="stat-card">
+      <div class="stat-icon risk-level">
+        <mat-icon>monitor_heart</mat-icon>
+      </div>
+      <div class="stat-content">
+        <h3>Low</h3>
+        <p>Current Risk Level</p>
+      </div>
+    </mat-card>
+
+    <mat-card class="stat-card">
+      <div class="stat-icon trends">
+        <mat-icon>trending_up</mat-icon>
+      </div>
+      <div class="stat-content">
+        <h3>+15%</h3>
+        <p>Health Improvement</p>
+      </div>
+    </mat-card>
+
+    <mat-card class="stat-card">
+      <div class="stat-icon goals">
+        <mat-icon>flag</mat-icon>
+      </div>
+      <div class="stat-content">
+        <h3>3/5</h3>
+        <p>Monthly Goals</p>
+      </div>
+    </mat-card>
+  </div>
+
+  <!-- Main Content Grid -->
+  <div class="dashboard-grid">
+    <!-- Quick Actions -->
+    <mat-card class="dashboard-card quick-actions">
+      <mat-card-header>
+        <mat-card-title>Quick Actions</mat-card-title>
+        <mat-card-subtitle>Manage your health journey</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="actions-grid">
+          <button mat-raised-button class="action-btn primary" routerLink="/assessment">
+            <mat-icon>add_circle</mat-icon>
+            New Assessment
+          </button>
+          <button mat-raised-button class="action-btn secondary">
+            <mat-icon>history</mat-icon>
+            View History
+          </button>
+          <button mat-raised-button class="action-btn tertiary">
+            <mat-icon>download</mat-icon>
+            Export Data
+          </button>
+          <button mat-raised-button class="action-btn quaternary">
+            <mat-icon>settings</mat-icon>
+            Preferences
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Health Tips -->
+    <mat-card class="dashboard-card health-tips">
+      <mat-card-header>
+        <mat-card-title>Health Tips</mat-card-title>
+        <mat-card-subtitle>Personalized recommendations</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="tips-list">
+          <div class="tip-item">
+            <div class="tip-icon">
+              <mat-icon>directions_run</mat-icon>
+            </div>
+            <div class="tip-content">
+              <h4>Regular Exercise</h4>
+              <p>Aim for 30 minutes of moderate activity daily</p>
+            </div>
+          </div>
+          <div class="tip-item">
+            <div class="tip-icon">
+              <mat-icon>restaurant</mat-icon>
+            </div>
+            <div class="tip-content">
+              <h4>Balanced Diet</h4>
+              <p>Include more fruits and vegetables in your meals</p>
+            </div>
+          </div>
+          <div class="tip-item">
+            <div class="tip-icon">
+              <mat-icon>nightlight</mat-icon>
+            </div>
+            <div class="tip-content">
+              <h4>Adequate Sleep</h4>
+              <p>7-8 hours of quality sleep recommended</p>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Emergency Contact -->
+    <mat-card class="dashboard-card emergency-contact">
+      <mat-card-header>
+        <mat-card-title>Emergency Contact</mat-card-title>
+        <mat-card-subtitle>Quick access to help</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="contact-card">
+          <div class="contact-icon">
+            <mat-icon>local_hospital</mat-icon>
+          </div>
+          <div class="contact-info">
+            <h4>Medical Emergency</h4>
+            <p class="contact-number">911</p>
+            <p class="contact-desc">Call for immediate medical assistance</p>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">
+            <mat-icon>contact_phone</mat-icon>
+          </div>
+          <div class="contact-info">
+            <h4>Your Doctor</h4>
+            <p class="contact-number">(555) 123-4567</p>
+            <p class="contact-desc">Dr. Sarah Johnson - Primary Care</p>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Appointments -->
+    <mat-card class="dashboard-card appointments">
+      <mat-card-header>
+        <mat-card-title>Upcoming Appointments</mat-card-title>
+        <mat-card-subtitle>Your scheduled visits</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="appointment-list">
+          <div class="appointment-item">
+            <div class="appointment-date">
+              <span class="date">15</span>
+              <span class="month">NOV</span>
+            </div>
+            <div class="appointment-details">
+              <h4>Annual Checkup</h4>
+              <p>10:00 AM - Dr. Johnson's Office</p>
+            </div>
+            <div class="appointment-actions">
+              <button mat-icon-button>
+                <mat-icon>notifications</mat-icon>
+              </button>
+            </div>
+          </div>
+          <div class="appointment-item">
+            <div class="appointment-date">
+              <span class="date">22</span>
+              <span class="month">NOV</span>
+            </div>
+            <div class="appointment-details">
+              <h4>Blood Test</h4>
+              <p>9:00 AM - LabCorp</p>
+            </div>
+            <div class="appointment-actions">
+              <button mat-icon-button>
+                <mat-icon>notifications</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+        <button mat-button class="schedule-btn">
+          <mat-icon>add</mat-icon>
+          Schedule New Appointment
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
