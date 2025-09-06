@@ -1,0 +1,8 @@
+{
+  "/predict": {
+    "target": "http://localhost:5104",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

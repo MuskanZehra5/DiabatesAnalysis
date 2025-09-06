@@ -1,25 +1,80 @@
-<mat-card *ngIf="result">
-      <mat-card-title>Assessment Result</mat-card-title>
-      <mat-card-content>
-        <p><strong>Prediction:</strong> {{ result.prediction }}</p>
-        <p *ngIf="result.riskScore !== undefined">
-          <strong>Risk Score:</strong> {{ result.riskScore }}%
-        </p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-raised-button color="primary" routerLink="/assessment-form">
-          New Assessment
-        </button>
-      </mat-card-actions>
-    </mat-card>
+<div class="card-container">
+  @if (result) {
+    <mat-card class="result-card">
+      <mat-card-header class="result-header">
+        <div mat-card-avatar class="result-icon">
+          <mat-icon>{{ result.prediction.includes('High') ? 'warning' : 'check_circle' }}</mat-icon>
+        </div>
+        <mat-card-title class="result-title">
+          Assessment Result
+        </mat-card-title>
+        <mat-card-subtitle class="result-subtitle">
+          Diabetes Risk Analysis
+        </mat-card-subtitle>
+      </mat-card-header>
 
-    <mat-card *ngIf="!result">
-      <mat-card-content>
-        <p>No result found. Please complete the assessment first.</p>
+      <mat-divider></mat-divider>
+
+      <mat-card-content class="result-content">
+        <!-- Prediction Section -->
+        <div class="result-item">
+          <mat-icon class="item-icon">clinical_notes</mat-icon>
+          <div class="item-content">
+            <h3 class="item-label">Prediction</h3>
+            <p class="item-value" [class.high-risk]="result.prediction.includes('High')" 
+                              [class.low-risk]="result.prediction.includes('Low')">
+              {{ result.prediction }}
+            </p>
+          </div>
+        </div>
+
+        <!-- Risk Score Section -->
+        @if (result.probability !== undefined) {
+          <div class="result-item">
+            <mat-icon class="item-icon">monitor_heart</mat-icon>
+            <div class="item-content">
+              <h3 class="item-label">Risk Score</h3>
+              <p class="item-value">
+                <span class="risk-percentage" [class.high-risk]="result.probability > 0.5">
+                  {{ result.probability * 100 | number:'1.0-2' }}%
+                </span>
+              </p>
+            </div>
+          </div>
+        }
+
+        <!-- Recommendation Section -->
+        <div class="result-item">
+          <mat-icon class="item-icon">recommend</mat-icon>
+          <div class="item-content">
+            <h3 class="item-label">Recommendation</h3>
+            <p class="item-value recommendation-text">
+              {{ result.advice }}
+            </p>
+          </div>
+        </div>
+
+        <!-- Risk Level Badge -->
+        @if (result.riskLevel) {
+          <div class="risk-level-badge" [class]="'risk-' + result.riskLevel.toLowerCase()">
+            <mat-icon>info</mat-icon>
+            <span>{{ result.riskLevel }} Risk</span>
+          </div>
+        }
+
       </mat-card-content>
-      <mat-card-actions>
-        <button mat-raised-button color="primary" routerLink="/assessment-form">
-          Go to Form
-        </button>
-      </mat-card-actions>
+
+      <mat-divider></mat-divider>
     </mat-card>
+  } @else {
+    <mat-card class="empty-state-card">
+      <mat-card-content class="empty-state-content">
+        <div class="empty-state-icon">
+          <mat-icon>assignment</mat-icon>
+        </div>
+        <h2>Assessment Results</h2>
+        <p>Complete the diabetes risk assessment to view your personalized results and recommendations.</p>
+      </mat-card-content>
+    </mat-card>
+  }  
+</div>

@@ -1,0 +1,255 @@
+.result-card {
+  margin-top: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.result-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 24px;
+  border-radius: 12px 12px 0 0;
+
+  .result-icon {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+
+    mat-icon {
+      color: white;
+      font-size: 24px;
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .result-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .result-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+  }
+}
+
+.result-content {
+  padding: 24px;
+}
+
+.result-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .item-icon {
+    color: #667eea;
+    margin-right: 16px;
+    margin-top: 4px;
+    flex-shrink: 0;
+  }
+
+  .item-content {
+    flex: 1;
+
+    .item-label {
+      font-size: 12px;
+      color: #6c757d;
+      margin: 0 0 4px 0;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .item-value {
+      font-size: 16px;
+      margin: 0;
+      font-weight: 500;
+      color: #2c3e50;
+
+      &.high-risk {
+        color: #e74c3c;
+        font-weight: 600;
+      }
+
+      &.low-risk {
+        color: #27ae60;
+        font-weight: 600;
+      }
+    }
+
+    .risk-percentage {
+      font-size: 24px;
+      font-weight: 700;
+
+      &.high-risk {
+        color: #e74c3c;
+      }
+    }
+
+    .recommendation-text {
+      line-height: 1.6;
+      color: #495057;
+      font-weight: 400;
+    }
+  }
+}
+
+.risk-level-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 16px;
+
+  mat-icon {
+    font-size: 18px;
+    margin-right: 8px;
+  }
+
+  &.risk-critical {
+    background-color: #ffe6e6;
+    color: #c53030;
+  }
+
+  &.risk-high {
+    background-color: #fff5eb;
+    color: #dd6b20;
+  }
+
+  &.risk-medium {
+    background-color: #ebf8ff;
+    color: #3182ce;
+  }
+
+  &.risk-low {
+    background-color: #f0fff4;
+    color: #38a169;
+  }
+}
+
+.result-actions {
+  padding: 16px 24px;
+  display: flex;
+  gap: 12px;
+
+  button {
+    border-radius: 24px;
+    padding: 8px 20px;
+
+    mat-icon {
+      margin-right: 8px;
+    }
+  }
+}
+
+.empty-state-card {
+  text-align: center;
+  padding: 40px 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.empty-state-content {
+  .empty-state-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+
+    mat-icon {
+      color: white;
+      font-size: 40px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  h2 {
+    color: #2c3e50;
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+
+  p {
+    color: #6c757d;
+    margin-bottom: 24px;
+    line-height: 1.6;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  button {
+    border-radius: 24px;
+    padding: 12px 28px;
+
+    mat-icon {
+      margin-right: 8px;
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .result-header {
+    padding: 16px;
+
+    .result-icon {
+      width: 40px;
+      height: 40px;
+
+      mat-icon {
+        font-size: 20px;
+      }
+    }
+
+    .result-title {
+      font-size: 20px;
+    }
+  }
+
+  .result-content {
+    padding: 16px;
+  }
+
+  .result-item {
+    flex-direction: column;
+    text-align: center;
+
+    .item-icon {
+      margin-right: 0;
+      margin-bottom: 12px;
+      align-self: center;
+    }
+  }
+
+  .result-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+.card-container {
+  padding: 0 50px;   /* 20px padding on left and right */
+  margin-top: 2rem;
+}

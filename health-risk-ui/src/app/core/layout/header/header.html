@@ -1,4 +1,4 @@
-<mat-toolbar color="primary" class="header-toolbar">
+<mat-toolbar class="header-toolbar">
   <span class="logo">
     <mat-icon>favorite</mat-icon>
     Health Risk Predictor
@@ -6,7 +6,18 @@
 
   <span class="spacer"></span>
 
-  <button mat-button routerLink="/dashboard" routerLinkActive="active-link">Home</button>
-  <button mat-button routerLink="/assessment">Assessment</button>
-  <button mat-button routerLink="/about">About</button>
+  <nav class="nav-links">
+    <button mat-button routerLink="/dashboard" routerLinkActive="active-link">
+      <mat-icon>home</mat-icon>
+      Home
+    </button>
+    <button mat-button routerLink="/assessment" routerLinkActive="active-link">
+      <mat-icon>assignment</mat-icon>
+      Assessment
+    </button>
+    <button mat-button routerLink="/about" routerLinkActive="active-link">
+      <mat-icon>info</mat-icon>
+      About
+    </button>
+  </nav>
 </mat-toolbar>

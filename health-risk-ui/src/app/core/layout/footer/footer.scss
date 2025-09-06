@@ -1,10 +1,132 @@
 .footer-toolbar {
-  background-color: #ad1457; /* Darker magenta */
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  font-size: 14px;
-  height: 48px;
+  padding: 20px 0;
+  margin-top: auto; // Pushes footer to bottom if using flex layout
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  
+  .footer-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    gap: 16px;
+    
+    .footer-section {
+      display: flex;
+      align-items: center;
+      
+      .copyright {
+        font-size: 14px;
+        opacity: 0.9;
+      }
+      
+      .made-by {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        gap: 4px;
+        
+        .heart-icon {
+          color: #ff6b6b;
+          font-size: 16px;
+          width: 16px;
+          height: 16px;
+          animation: heartbeat 2s infinite;
+        }
+      }
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 8px;
+      
+      a {
+        color: white;
+        background-color: rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+        
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.2);
+          transform: translateY(-2px);
+        }
+        
+        mat-icon {
+          font-size: 18px;
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+  }
 }
 
-.spacer {
-  flex: 1 1 auto;
+// Heartbeat animation
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  5% {
+    transform: scale(1.1);
+  }
+  10% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(1.1);
+  }
+  20% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .footer-toolbar {
+    padding: 16px 0;
+    
+    .footer-content {
+      flex-direction: column;
+      text-align: center;
+      gap: 12px;
+      padding: 0 16px;
+      
+      .footer-section {
+        justify-content: center;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-toolbar {
+    .footer-content {
+      .copyright, .made-by {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+// In your styles.scss or the component containing your app layout
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  
+  .main-content {
+    flex: 1 0 auto;
+    padding: 20px 0;
+  }
+  
+  .footer-toolbar {
+    flex-shrink: 0;
+  }
 }

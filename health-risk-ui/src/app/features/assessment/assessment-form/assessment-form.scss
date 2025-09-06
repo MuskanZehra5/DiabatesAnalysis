@@ -1,0 +1,309 @@
+.assessment-container {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header-section {
+  margin-bottom: 24px;
+  
+  .page-title {
+    color: #2c3e50;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  
+  .info-notice {
+    display: flex;
+    align-items: flex-start;
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    
+    .icon {
+      color: #1976d2;
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+    
+    p {
+      margin: 0;
+      color: #37474f;
+      line-height: 1.6;
+    }
+  }
+}
+
+.assessment-card {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  
+  .card-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 24px;
+    
+    .header-icon {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      mat-icon {
+        color: white;
+      }
+    }
+    
+    mat-card-title {
+      font-size: 24px;
+      font-weight: 600;
+    }
+    
+    mat-card-subtitle {
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+}
+
+mat-grid-list {
+  margin: 16px 0;
+  
+  mat-grid-tile {
+    overflow: visible !important;
+  }
+}
+
+.full-width {
+  width: 100%;
+}
+
+.radio-group-container {
+  width: 100%;
+  padding: 0 8px;
+  
+  .radio-group-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.6);
+  }
+  
+  .radio-group {
+    display: flex;
+    gap: 16px;
+    
+    .radio-button {
+      margin-right: 8px;
+    }
+  }
+  
+  .radio-error {
+    font-size: 12px;
+    margin-top: 4px;
+  }
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 24px 0 16px;
+  
+  button {
+    border-radius: 24px;
+    padding: 0 24px;
+    min-width: 140px;
+    color:white;
+    
+    mat-icon {
+      margin-right: 8px;
+    }
+  }
+  
+  .submit-button:not([disabled]) {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+}
+
+// Responsive design
+@media (max-width: 1024px) {
+  mat-grid-list {
+    columns: 2 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .assessment-container {
+    padding: 16px;
+  }
+  
+  .header-section {
+    .page-title {
+      font-size: 24px;
+    }
+    
+    .info-notice {
+      flex-direction: column;
+      text-align: center;
+      
+      .icon {
+        margin-right: 0;
+        margin-bottom: 8px;
+        align-self: center;
+      }
+    }
+  }
+  .form-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 24px 0 16px;
+  margin-top: 16px;
+  
+  button {
+    border-radius: 24px;
+    padding: 0 24px;
+    min-width: 160px;
+    height: 48px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    border: none;
+    color:white;
+    
+    mat-icon {
+      margin-right: 8px;
+      font-size: 20px;
+      width: 20px;
+      height: 20px;
+      transition: transform 0.3s ease;
+    }
+    
+    &:hover:not([disabled]) {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+      
+      mat-icon {
+        transform: scale(1.1);
+      }
+    }
+    
+    &:active:not([disabled]) {
+      transform: translateY(0);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+  }
+  
+  // Primary Submit Button
+  .submit-button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    
+    &:hover:not([disabled]) {
+      background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+      box-shadow: 0 6px 16px rgba(102, 126, 234, 0.35);
+    }
+    
+    &:active:not([disabled]) {
+      background: linear-gradient(135deg, #5566c4 0%, #613885 100%);
+    }
+    
+    &[disabled] {
+      background: linear-gradient(135deg, #b0b0b0 0%, #888888 100%);
+      color: rgba(255, 255, 255, 0.7);
+      cursor: not-allowed;
+      animation: pulse 2s infinite;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+}
+
+// Pulse animation for loading state
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    opacity: 1;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// Responsive design for buttons
+@media (max-width: 768px) {
+  .form-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 0;
+    
+    button {
+      width: 100%;
+      max-width: 280px;
+      min-width: unset;
+    }
+  }
+}
+
+// Focus states for accessibility
+button:focus-visible {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+  
+  .radio-group {
+    flex-direction: column;
+    gap: 8px !important;
+  }
+}
+
+// Form field focus styles
+mat-form-field {
+  .mdc-notched-outline__leading,
+  .mdc-notched-outline__notch,
+  .mdc-notched-outline__trailing {
+    border-color: #667eea !important;
+  }
+  
+  &.mat-focused {
+    .mdc-notched-outline__leading,
+    .mdc-notched-outline__notch,
+    .mdc-notched-outline__trailing {
+      border-color: #764ba2 !important;
+      border-width: 2px;
+    }
+    
+    mat-label {
+      color: #764ba2;
+    }
+  }
+}
+
+// Loading animation
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.submit-button[disabled] {
+  animation: pulse 1.5s infinite;
+}
