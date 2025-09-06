@@ -307,3 +307,8 @@ mat-form-field {
 .submit-button[disabled] {
   animation: pulse 1.5s infinite;
 }
+
+mat-card{
+  background: linear-gradient(135deg, #e2e6f7 0%, #e7e3eb 100%);
+  color: black !important;
+}
